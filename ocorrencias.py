@@ -37,7 +37,7 @@ class ocorrencias(base):
     codDP = sa.Column(sa.INTEGER, sa.ForeignKey("dp.codDP", ondelete = "NO ACTION", onupdate = "CASCADE"), index = True)
     codIBGE = sa.Column(sa.INTEGER, sa.ForeignKey("municipio.codIBGE", ondelete = "NO ACTION", onupdate = "CASCADE"), index = True)
     ano = sa.Column(sa.CHAR(4), nullable = False)
-    mes = sa.Column(sa.VARCHAR(2), nullable = False)
+    mes = sa.Column(sa.CHAR(2), nullable = False)
     ocorrencia = sa.Column(sa.VARCHAR(2), nullable = False)
     qtde = sa.Column(sa.INTEGER, nullable = False)
 
