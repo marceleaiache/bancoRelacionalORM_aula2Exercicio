@@ -6,8 +6,7 @@ import sqlalchemy.orm as orm
 
 base = orm.declarative_base()
 
-    #tb departamento de policia -> dp
-
+    #tbDP departamento de policia -> dp
 class dp(base):
     __tablename__ = "dp"
 
@@ -15,12 +14,14 @@ class dp(base):
     nome = sa.Column(sa.VARCHAR(100), nullable = False)
     endereco = sa.Column(sa.VARCHAR(255), nullable = False)
 
+    #tbResponsavelSP -> responsavelSP
 class responsavelSP(base):
     __tablename__ = "responsavelSP"
 
     codDP = sa.Column(sa.INTEGER, nullable = False, primary_key = True, index = True)
     delegado = sa.Column(sa.VARCHAR(100), nullable = False)
 
+    #tbMunicipio -> municipio
 class municipio(base):
     __tablename__ = "municipio"
 
@@ -28,8 +29,9 @@ class municipio(base):
     municipio = sa.Column(sa.VARCHAR(100), nullable = False)
     regiao = sa.Column(sa.VARCHAR(25), nullable = False)
 
+    #tbOcorrencias -> ocorrencias
 class ocorrencias(base):
-    __tablename__ = "ocorrencia"
+    __tablename__ = "ocorrencias"
 
     idRegistro = sa.Column(sa.INTEGER, nullable = False, primary_key = True, index = True)
     codDP = sa.Column(sa.INTEGER, sa.ForeignKey("dp.codDP", ondelete = "NO ACTION", onupdate = "CASCADE"), index = True)
